@@ -1,16 +1,28 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
+      <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>
     </div>
-    <router-view/>
+    <!-- 路由 -->
+    <transition name="router-fade" mode="out-in">
+      <router-view />
+    </transition>
   </div>
 </template>
 
 <style lang="scss">
+// 渐变动画
+.router-fade-leave-active,
+.router-fade-enter-active {
+  transition: opacity 0.3s;
+}
+.router-fade-enter,
+.router-fade-leave {
+  opacity: 0;
+}
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

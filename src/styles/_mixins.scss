@@ -1,0 +1,173 @@
+/**
+ * 公共函数-scss
+ */
+
+/**
+ * 滚动条
+ */
+@mixin scrollbar() {
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    overflow: hidden;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #acacac;
+  }
+}
+
+/**
+ * 清除浮动
+ */
+@mixin clear-fix() {
+  *zoom: 1;
+  &:before,
+  &:after {
+    content: "";
+    display: block;
+  }
+  &:after {
+    clear: both;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+  }
+}
+
+/**
+ * 圆角
+ * @radius 圆角值
+ */
+@mixin border-radius($radius: 5px) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+/**
+ * 元素阴影
+ * @shadow (h-shadow v-shadow blur spread color inset)
+ *      h-shadow:必需。水平阴影的位置。允许负值。
+ *      v-shadow:必需。垂直阴影的位置。允许负值。
+ *      blur    :可选。模糊距离。
+ *      spread  :可选。阴影的尺寸。
+ *      color   :可选。阴影的颜色。请参阅 CSS 颜色值。
+ *      inset   :可选。将外部阴影 (outset) 改为内部阴影。
+ */
+@mixin box-shadow($shadow: 0 0 20px rgba(124, 124, 124, 0.1)) {
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+/**
+ * 文本超出用"..."代替
+ * @clamp 控制多少行后文本超出用"..."代替(默认为一行)
+ * @remark 需要设置元素为block或inline-block；多行时，需要设置元素高度
+ */
+@mixin text-overflow() {
+  -webkit-text-overflow: ellipsis;
+  -khtml-text-overflow: ellipsis;
+  -icab-text-overflow: ellipsis;
+  -moz-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@mixin text-overflow-multi($line: 3) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+  overflow: hidden;
+}
+
+/**
+ * 效果过度
+ * @shadow (property duration timing-function delay)
+ *      property       :规定设置过渡效果的 CSS 属性的名称。
+ *      duration       :规定完成过渡效果需要多少秒或毫秒。
+ *      timing-function:规定速度效果的速度曲线。
+ *      delay          :定义过渡效果何时开始。
+ */
+@mixin transition($transition: all 0.2s ease 0.2s) {
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition;
+}
+
+/**
+ * 元素透明度
+ * @opacity 透明度(0~1之间)
+ */
+@mixin opacity($opacity: 0.5) {
+  $opacity-ie: ($opacity * 100);
+  -khtml-opacity: $opacity;
+  -moz-opacity: $opacity;
+  opacity: $opacity;
+  filter: "alpha(opacity=" + $opacity-ie + ")";
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=" + $opacity-ie + ")";
+  filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=" + $opacity-ie + ")";
+}
+
+/* Vertical gradient, from top to bottom （垂直渐变，从上到下）*/
+@mixin vertical($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+  background-image: -webkit-gradient(
+    linear,
+    left $start-percent,
+    left $end-percent,
+    from($start-color),
+    to($end-color)
+  ); /* Safari 4+, Chrome 2+*/
+  background-image: -webkit-linear-gradient(
+    top,
+    $start-color $start-percent,
+    $end-color $end-percent
+  ); /*Safari 5.1+, Chrome 10+*/
+  background-image: -moz-linear-gradient(top, $start-color $start-percent, $end-color $end-percent); /*FF 3.6+*/
+  background-image: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent); /*Standard, IE10*/
+  background-repeat: repeat-x;
+  filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='" + $start-color + "', endColorstr='" + $end-color +
+    "', GradientType=0)";
+  //filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb($start-color),argb($end-color))); /*IE9 and down*/
+}
+
+/**
+ * 占位符placeholder样式设置
+ * @color 字体颜色
+ * @font-size 字体大小
+ * @font-family 字体
+ */
+@mixin placeholder($color: #999, $font-size: 12px) {
+  &::-webkit-input-placeholder {
+    // font-family: $font-family;
+    font-size: $font-size;
+    color: $color;
+  }
+  &:-moz-placeholder {
+    // font-family: $font-family;
+    font-size: $font-size;
+    color: $color;
+  }
+  &::-moz-placeholder {
+    // font-family: $font-family;
+    font-size: $font-size;
+    color: $color;
+  }
+  &:-ms-input-placeholder {
+    // font-family: $font-family;
+    font-size: $font-size;
+    color: $color;
+  }
+  &:placeholder {
+    // font-family: $font-family;
+    font-size: $font-size;
+    color: $color;
+  }
+}
