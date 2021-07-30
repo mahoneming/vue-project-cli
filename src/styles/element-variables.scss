@@ -1,0 +1,4 @@
+$--color-primary: #86BC25; // 主题色
+/* 改变 icon 字体路径变量，必需 */
+$--font-path: '~_node/element-ui/lib/theme-chalk/fonts';
+@import "~_node/element-ui/packages/theme-chalk/src/index";

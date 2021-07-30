@@ -1,0 +1,33 @@
+export default {
+  role: {
+    "name": "Role",
+    "type": "Role Type",
+    "service_line": "Service Line",
+    "service_role": "Service Role",
+    "regional_restriction": "Region Restriction",
+    "service_group_restriction": "SC Restriction",
+    "department_restriction": "Office Restriction",
+    "industry_restriction": "Industry Restriction",
+    "market_restriction": "Segment Restriction",
+    "add_user": "Add Team Member",
+    "add_team": "Add Team",
+    "management_style": "Management Methods",
+    "advance": "Advance",
+    "person_team_query_page": "Role/Team Query",
+    "all_person": "All",
+    "selected_person": "Selected Personnel",
+    "basic_info": "Basic Information",
+    "describe": "Description",
+    "role_user_manager": "Role and Member Management",
+    "user_name": "User Name",
+    "user_cn_name": "Chinese Name",
+    "user_en_name": "English Name",
+    "user_or_team": "User /Team",
+    "operator": "Action",
+    "by_role": "By role",
+    "role_num": "No",
+    "menu_name": "Menu Name",
+    "menu_name_en":'Menu Name(EN)',
+    "join_yes_no": "Is Engagement Member?"
+  }
+}
